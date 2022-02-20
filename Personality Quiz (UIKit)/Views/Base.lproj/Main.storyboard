@@ -273,6 +273,7 @@
                     <navigationItem key="navigationItem" title="🐶  🐈  🐰  🐢" id="5a9-nN-NBZ"/>
                     <connections>
                         <outlet property="multipleChoiceControls" destination="Bze-Zl-egU" id="jjL-fi-f2K"/>
+                        <outlet property="questionText" destination="y6N-me-OZ4" id="BB8-ld-pne"/>
                         <outlet property="rangeChoiceControls" destination="ixA-z0-9HS" id="l5b-Hn-XWM"/>
                         <outlet property="singleChoiceControls" destination="4hi-xZ-dPt" id="ZSk-0Q-cwV"/>
                         <outletCollection property="choiceControls" destination="4hi-xZ-dPt" collectionClass="NSMutableArray" id="Ftt-gG-LqI"/>

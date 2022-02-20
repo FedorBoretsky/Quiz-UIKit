@@ -13,6 +13,7 @@ class QuestionsViewController: UIViewController
     @IBOutlet weak var multipleChoiceControls: UIStackView!
     @IBOutlet weak var rangeChoiceControls: UIStackView!
     @IBOutlet var choiceControls: [UIStackView]!
+    @IBOutlet weak var questionText: UILabel!
     
     var questionIndex = 0 {
         didSet {
@@ -34,6 +35,7 @@ class QuestionsViewController: UIViewController
         choiceControls.forEach{ $0.isHidden = true }
         // Show controls for current question.
         let question = Question.list[questionIndex]
+        questionText.text = question.text
         switch question.responseType {
         case .singleChoice:
             singleChoiceControls.isHidden = false
