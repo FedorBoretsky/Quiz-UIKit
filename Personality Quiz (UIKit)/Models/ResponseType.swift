@@ -8,5 +8,5 @@
 enum ResponseType {
     case singleChoice
     case multipleChoice
-    case range
+    case rangeChoice
 }

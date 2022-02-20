@@ -7,23 +7,44 @@
 
 import UIKit
 
-class QuestionsViewController: UIViewController {
+class QuestionsViewController: UIViewController
+{
+    @IBOutlet weak var singleChoiceControls: UIStackView!
+    @IBOutlet weak var multipleChoiceControls: UIStackView!
+    @IBOutlet weak var rangeChoiceControls: UIStackView!
+    @IBOutlet var choiceControls: [UIStackView]!
+    
+    var questionIndex = 0 {
+        didSet {
+            if questionIndex < Question.list.count {
+                updateUI()
+            } else {
+                performSegue(withIdentifier: "gotoResult", sender: nil)
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        updateUI()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func updateUI() {
+        // Clear all.
+        choiceControls.forEach{ $0.isHidden = true }
+        // Show controls for current question.
+        let question = Question.list[questionIndex]
+        switch question.responseType {
+        case .singleChoice:
+            singleChoiceControls.isHidden = false
+        case .multipleChoice:
+            multipleChoiceControls.isHidden = false
+        case .rangeChoice:
+            rangeChoiceControls.isHidden = false
+        }
     }
-    */
-
+    
+    @IBAction func answered() {
+        questionIndex += 1
+    }
 }

@@ -19,7 +19,7 @@ extension Question {
             Answer(text: "Обниматься", animalType: .rabbit),
             Answer(text: "Есть", animalType: .dog),
         ]),
-        Question(text: "Любите ли вы поездки на машине?", responseType: .range, answers: [
+        Question(text: "Любите ли вы поездки на машине?", responseType: .rangeChoice, answers: [
             Answer(text: "Ненавижу", animalType: .cat),
             Answer(text: "Нервничаю", animalType: .rabbit),
             Answer(text: "Не замечаю", animalType: .turtle),
