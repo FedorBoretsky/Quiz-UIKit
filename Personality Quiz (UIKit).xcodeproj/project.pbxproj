@@ -19,6 +19,7 @@
 		9FCD4D3A27BF7A2900628B16 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FCD4D3927BF7A2900628B16 /* Assets.xcassets */; };
 		9FCD4D3D27BF7A2900628B16 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FCD4D3B27BF7A2900628B16 /* LaunchScreen.storyboard */; };
 		9FCD4D4527BF7DEB00628B16 /* QuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCD4D4427BF7DEB00628B16 /* QuestionsViewController.swift */; };
+		9FCFA59927C28FB40052F556 /* Quiestion+List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCFA59827C28FB40052F556 /* Quiestion+List.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		9FCD4D3C27BF7A2900628B16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9FCD4D3E27BF7A2900628B16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9FCD4D4427BF7DEB00628B16 /* QuestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsViewController.swift; sourceTree = "<group>"; };
+		9FCFA59827C28FB40052F556 /* Quiestion+List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Quiestion+List.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				9F5ED0FE27C2697C002404E2 /* App */,
+				9FCFA59A27C28FC10052F556 /* Data */,
 				9F5ED0FF27C26B13002404E2 /* Models */,
 				9FCD4D4627BF7DF600628B16 /* View Controllers */,
 				9F5ED0FC27C26930002404E2 /* Views */,
@@ -115,6 +118,14 @@
 				9F5ED0FA27C24086002404E2 /* ResultViewController.swift */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		9FCFA59A27C28FC10052F556 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				9FCFA59827C28FB40052F556 /* Quiestion+List.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,6 +200,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F5ED0FB27C24086002404E2 /* ResultViewController.swift in Sources */,
+				9FCFA59927C28FB40052F556 /* Quiestion+List.swift in Sources */,
 				9FCD4D3527BF7A2800628B16 /* WelcomeViewController.swift in Sources */,
 				9FCD4D3127BF7A2800628B16 /* AppDelegate.swift in Sources */,
 				9F5ED10927C26E72002404E2 /* Question.swift in Sources */,
