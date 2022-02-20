@@ -33,9 +33,12 @@ class QuestionsViewController: UIViewController
     func updateUI() {
         // Clear all.
         choiceControls.forEach{ $0.isHidden = true }
-        // Show controls for current question.
+        // And now start asking.
         let question = Question.list[questionIndex]
+        // Show the number and the text of question.
+        self.title = "Вопрос \(questionIndex + 1)"
         questionText.text = question.text
+        // Response controls.
         switch question.responseType {
         case .singleChoice:
             singleChoiceControls.isHidden = false
