@@ -19,6 +19,18 @@ extension Question {
             Answer(text: "Обниматься", animalType: .rabbit),
             Answer(text: "Есть", animalType: .dog),
         ]),
+//        Question(text: "Что вы любите делать?", responseType: .multipleChoice, answers: [
+//            Answer(text: "Плавать", animalType: .turtle),
+//            Answer(text: "Спать", animalType: .cat),
+//            Answer(text: "Обниматься", animalType: .rabbit),
+//            Answer(text: "Есть", animalType: .dog),
+//        ]),
+//        Question(text: "Что вы любите делать?", responseType: .multipleChoice, answers: [
+//            Answer(text: "Плавать", animalType: .turtle),
+//            Answer(text: "Спать", animalType: .cat),
+//            Answer(text: "Обниматься", animalType: .rabbit),
+//            Answer(text: "Есть", animalType: .dog),
+//        ]),
         Question(text: "Любите ли вы поездки на машине?", responseType: .rangeChoice, answers: [
             Answer(text: "Ненавижу", animalType: .cat),
             Answer(text: "Нервничаю", animalType: .rabbit),

@@ -9,47 +9,88 @@ import UIKit
 
 class QuestionsViewController: UIViewController
 {
+    // MARK: - Outlets
+    
+    @IBOutlet weak var quizProgressBar: UIProgressView!
+    
+    @IBOutlet weak var questionWording: UILabel!
+    
+    @IBOutlet var choiceControls: [UIStackView]!
+    
     @IBOutlet weak var singleChoiceControls: UIStackView!
     @IBOutlet weak var multipleChoiceControls: UIStackView!
     @IBOutlet weak var rangeChoiceControls: UIStackView!
-    @IBOutlet var choiceControls: [UIStackView]!
-    @IBOutlet weak var questionText: UILabel!
     
-    var questionIndex = 0 {
+    
+    // MARK: - State
+    
+    var currentQuestionIndex = 0 {
         didSet {
-            if questionIndex < Question.list.count {
+            if currentQuestionIndex < Question.list.count {
                 updateUI()
             } else {
                 performSegue(withIdentifier: "gotoResult", sender: nil)
             }
         }
     }
+    
+    var currentQuestion: Question {
+        Question.list[currentQuestionIndex]
+    }
+    
+    var currentAnswers: [Answer] {
+        currentQuestion.answers
+    }
+    
+    var quizCollectedResponses: [Answer] = []
+    
 
+    // MARK: - Setup
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
     }
     
+    // MARK: - Update
+    
     func updateUI() {
-        // Clear all.
-        choiceControls.forEach{ $0.isHidden = true }
-        // And now start asking.
-        let question = Question.list[questionIndex]
-        // Show the number and the text of question.
-        self.title = "Вопрос \(questionIndex + 1)"
-        questionText.text = question.text
+        
+        // Quiz progress
+        let progressStep: Float = 1.0 / Float(Question.list.count)
+        quizProgressBar.progress = Float(currentQuestionIndex) * progressStep + progressStep / 4
+        
+        // Number and the text of question.
+        self.title = "Вопрос \(currentQuestionIndex + 1) из \(Question.list.count)"
+        questionWording.text = currentQuestion.text
+        
         // Response controls.
-        switch question.responseType {
+        choiceControls.forEach{ $0.isHidden = true }
+        switch currentQuestion.responseType {
         case .singleChoice:
-            singleChoiceControls.isHidden = false
+            showSingleChoice()
         case .multipleChoice:
-            multipleChoiceControls.isHidden = false
+            showMultipleChoice()
         case .rangeChoice:
-            rangeChoiceControls.isHidden = false
+            showRangeChoice()
         }
     }
     
+    func showSingleChoice() {
+        singleChoiceControls.isHidden = false
+    }
+    
+    func showMultipleChoice() {
+        multipleChoiceControls.isHidden = false
+    }
+    
+    func showRangeChoice() {
+        rangeChoiceControls.isHidden = false
+    }
+    
+    // MARK: - Interactions
+    
     @IBAction func answered() {
-        questionIndex += 1
+        currentQuestionIndex += 1
     }
 }
