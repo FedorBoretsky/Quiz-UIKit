@@ -208,17 +208,17 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="ixA-z0-9HS">
                                 <rect key="frame" x="20" y="217" width="280" height="53.5"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="54" translatesAutoresizingMaskIntoConstraints="NO" id="gSn-tU-PBF">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="gSn-tU-PBF">
                                         <rect key="frame" x="0.0" y="0.0" width="280" height="21.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3OU-8o-abG">
-                                                <rect key="frame" x="0.0" y="0.0" width="113" height="21.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="129" height="21.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XEB-eZ-K0Z">
-                                                <rect key="frame" x="167" y="0.0" width="113" height="21.5"/>
+                                                <rect key="frame" x="151" y="0.0" width="129" height="21.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -273,14 +273,24 @@
                     </view>
                     <navigationItem key="navigationItem" title="🐶  🐈  🐰  🐢" id="5a9-nN-NBZ"/>
                     <connections>
-                        <outlet property="multipleChoiceControls" destination="Bze-Zl-egU" id="jjL-fi-f2K"/>
+                        <outlet property="multipleChoiceForm" destination="Bze-Zl-egU" id="jjL-fi-f2K"/>
                         <outlet property="questionWording" destination="y6N-me-OZ4" id="BB8-ld-pne"/>
                         <outlet property="quizProgressBar" destination="rHV-0L-G4v" id="JCD-Dh-Sjs"/>
-                        <outlet property="rangeChoiceControls" destination="ixA-z0-9HS" id="l5b-Hn-XWM"/>
-                        <outlet property="singleChoiceControls" destination="4hi-xZ-dPt" id="ZSk-0Q-cwV"/>
+                        <outlet property="rangeChoiceForm" destination="ixA-z0-9HS" id="l5b-Hn-XWM"/>
+                        <outlet property="rangeFinishLabel" destination="XEB-eZ-K0Z" id="YIA-l3-m82"/>
+                        <outlet property="rangeStartLabel" destination="3OU-8o-abG" id="gUq-Fl-nt8"/>
+                        <outlet property="singleChoiceForm" destination="4hi-xZ-dPt" id="ZSk-0Q-cwV"/>
                         <outletCollection property="choiceControls" destination="4hi-xZ-dPt" collectionClass="NSMutableArray" id="Ftt-gG-LqI"/>
                         <outletCollection property="choiceControls" destination="Bze-Zl-egU" collectionClass="NSMutableArray" id="qoL-Hh-jve"/>
                         <outletCollection property="choiceControls" destination="ixA-z0-9HS" collectionClass="NSMutableArray" id="89l-Rc-pIz"/>
+                        <outletCollection property="singleChoiceItems" destination="jf3-d8-TSE" collectionClass="NSMutableArray" id="kIR-Kc-ABz"/>
+                        <outletCollection property="singleChoiceItems" destination="ZhH-bT-axq" collectionClass="NSMutableArray" id="Ded-7v-vM1"/>
+                        <outletCollection property="singleChoiceItems" destination="yhd-WS-Jqf" collectionClass="NSMutableArray" id="L9h-Z5-4B1"/>
+                        <outletCollection property="singleChoiceItems" destination="3wA-Ya-J3o" collectionClass="NSMutableArray" id="2eX-c5-TZp"/>
+                        <outletCollection property="multipleChioceItems" destination="dTN-SV-343" collectionClass="NSMutableArray" id="Ob2-uc-6gk"/>
+                        <outletCollection property="multipleChioceItems" destination="PYw-9K-rmm" collectionClass="NSMutableArray" id="6Fx-3t-suX"/>
+                        <outletCollection property="multipleChioceItems" destination="v31-D7-tC9" collectionClass="NSMutableArray" id="sgT-ao-SOT"/>
+                        <outletCollection property="multipleChioceItems" destination="GjS-3H-ftr" collectionClass="NSMutableArray" id="GxG-JT-b6j"/>
                         <segue destination="IEt-zo-TRE" kind="show" identifier="gotoResult" id="RrK-yf-ba7"/>
                     </connections>
                 </viewController>

@@ -17,9 +17,15 @@ class QuestionsViewController: UIViewController
     
     @IBOutlet var choiceControls: [UIStackView]!
     
-    @IBOutlet weak var singleChoiceControls: UIStackView!
-    @IBOutlet weak var multipleChoiceControls: UIStackView!
-    @IBOutlet weak var rangeChoiceControls: UIStackView!
+    @IBOutlet weak var singleChoiceForm: UIStackView!
+    @IBOutlet var singleChoiceItems: [UIButton]!
+    
+    @IBOutlet weak var multipleChoiceForm: UIStackView!
+    @IBOutlet var multipleChioceItems: [UIStackView]!
+    
+    @IBOutlet weak var rangeChoiceForm: UIStackView!
+    @IBOutlet weak var rangeStartLabel: UILabel!
+    @IBOutlet weak var rangeFinishLabel: UILabel!
     
     
     // MARK: - State
@@ -56,7 +62,7 @@ class QuestionsViewController: UIViewController
     
     func updateUI() {
         
-        // Quiz progress
+        // Quiz progress bar
         let progressStep: Float = 1.0 / Float(Question.list.count)
         quizProgressBar.progress = Float(currentQuestionIndex) * progressStep + progressStep / 4
         
@@ -77,15 +83,32 @@ class QuestionsViewController: UIViewController
     }
     
     func showSingleChoice() {
-        singleChoiceControls.isHidden = false
+        singleChoiceForm.isHidden = false
+        singleChoiceItems.forEach{ $0.isHidden = true }
+        zip(singleChoiceItems, currentAnswers).forEach{
+            (button, answer)
+            in
+            button.setTitle(answer.text, for: [])
+            button.isHidden = false
+        }
     }
     
     func showMultipleChoice() {
-        multipleChoiceControls.isHidden = false
+        multipleChoiceForm.isHidden = false
+        multipleChioceItems.forEach{ $0.isHidden = true }
+        zip(multipleChioceItems, currentAnswers).forEach{
+            (chiceItem, answer)
+            in
+            let label = chiceItem.arrangedSubviews.first as! UILabel
+            label.text = answer.text
+            chiceItem.isHidden = false
+        }
     }
     
     func showRangeChoice() {
-        rangeChoiceControls.isHidden = false
+        rangeChoiceForm.isHidden = false
+        rangeStartLabel.text = currentAnswers.first?.text
+        rangeFinishLabel.text = currentAnswers.last?.text
     }
     
     // MARK: - Interactions
