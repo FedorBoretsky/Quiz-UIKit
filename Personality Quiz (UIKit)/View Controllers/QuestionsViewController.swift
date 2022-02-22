@@ -64,7 +64,8 @@ class QuestionsViewController: UIViewController
         
         // Quiz progress bar
         let progressStep: Float = 1.0 / Float(Question.list.count)
-        quizProgressBar.progress = Float(currentQuestionIndex) * progressStep + progressStep / 4
+        let currentProgress = Float(currentQuestionIndex) * progressStep + progressStep / 4
+        quizProgressBar.setProgress(currentProgress, animated: true)
         
         // Number and the text of question.
         self.title = "Вопрос \(currentQuestionIndex + 1) из \(Question.list.count)"
