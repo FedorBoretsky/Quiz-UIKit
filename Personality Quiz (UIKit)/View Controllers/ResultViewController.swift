@@ -9,6 +9,9 @@ import UIKit
 
 class ResultViewController: UIViewController {
 
+    @IBOutlet weak var resultLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
     let answers: [Answer]
     
     init?(coder: NSCoder, responses answers: [Answer]) {
@@ -22,8 +25,21 @@ class ResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Debug …
-        print(#fileID, #function); answers.forEach{ print($0.text) }
+        navigationItem.hidesBackButton = true
+        displayResult(animal: calculatedResult())
+    }
+    
+    func displayResult(animal: AnimalType) {
+        resultLabel.text = "\(animal.rawValue)"
+        descriptionLabel.text = animal.description
+    }
+    
+    func calculatedResult() -> AnimalType {
+        let numberOfResponsesByType = answers.reduce(into: [:]) { numberOfResponsesByType, answer in
+            numberOfResponsesByType[answer.animalType, default: 0] += 1
+        }
+        let mostFrequentType = numberOfResponsesByType.sorted{ $0.value > $1.value }.first!.key
+        return mostFrequentType
     }
 
 }

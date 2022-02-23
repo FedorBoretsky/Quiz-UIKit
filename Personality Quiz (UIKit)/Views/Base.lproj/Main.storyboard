@@ -86,7 +86,7 @@
             </objects>
             <point key="canvasLocation" x="703" y="106"/>
         </scene>
-        <!--🐶  🐈  🐰  🐢-->
+        <!--Question View-->
         <scene sceneID="EBc-Ax-VaG">
             <objects>
                 <viewController id="c9h-ST-fHR" customClass="QuestionsViewController" customModule="Personality_Quiz__UIKit_" customModuleProvider="target" sceneMemberID="viewController">
@@ -283,7 +283,7 @@
                             <constraint firstItem="4hi-xZ-dPt" firstAttribute="leading" secondItem="lk3-zK-HU2" secondAttribute="leading" constant="20" id="vQb-1a-Fxy"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="🐶  🐈  🐰  🐢" id="5a9-nN-NBZ"/>
+                    <navigationItem key="navigationItem" title="Question View" id="5a9-nN-NBZ"/>
                     <connections>
                         <outlet property="multipleChoiceForm" destination="Bze-Zl-egU" id="jjL-fi-f2K"/>
                         <outlet property="questionWording" destination="y6N-me-OZ4" id="BB8-ld-pne"/>
@@ -320,16 +320,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="Zzf-mo-5FO">
-                                <rect key="frame" x="20" y="381.5" width="374" height="79.5"/>
+                                <rect key="frame" x="20" y="368" width="374" height="106"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Result" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kH4-Gz-rCV">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="36"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="firstBaseline" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="2e2-PJ-Iyu">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="62.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вы" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHR-lv-cpz">
+                                                <rect key="frame" x="0.0" y="0.0" width="180" height="60"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="😺" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kH4-Gz-rCV">
+                                                <rect key="frame" x="194" y="-9.5" width="180" height="72"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Explanation" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gjk-14-o3L">
-                                        <rect key="frame" x="0.0" y="58" width="374" height="21.5"/>
+                                        <rect key="frame" x="0.0" y="84.5" width="374" height="21.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -352,6 +363,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="gjk-14-o3L" id="kUc-RP-r6t"/>
+                        <outlet property="resultLabel" destination="kH4-Gz-rCV" id="r6U-B9-ZJg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xFP-nA-GFR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="syD-bf-qlx" userLabel="Exit" sceneMemberID="exit"/>
