@@ -26,6 +26,7 @@ class QuestionsViewController: UIViewController
     @IBOutlet weak var rangeChoiceForm: UIStackView!
     @IBOutlet weak var rangeStartLabel: UILabel!
     @IBOutlet weak var rangeFinishLabel: UILabel!
+    @IBOutlet weak var rangeSlider: UISlider!
     
     
     // MARK: - State
@@ -48,7 +49,8 @@ class QuestionsViewController: UIViewController
         currentQuestion.answers
     }
     
-    var quizCollectedResponses: [Answer] = []
+    var savedQuizResponses: [Answer] = []
+    { didSet{ print(savedQuizResponses) }}
     
 
     // MARK: - Setup
@@ -113,8 +115,53 @@ class QuestionsViewController: UIViewController
     }
     
     // MARK: - Interactions
+    @IBAction func singleChoiceButtonPressed(_ sender: UIButton) {
+        singleChoiceItems.forEach{ $0.isSelected = false}
+        sender.isSelected = true
+    }
     
-    @IBAction func answered() {
+    @IBAction func finishQuestion() {
+        switch currentQuestion.responseType {
+        case .singleChoice: saveSingleChoiceResponse()
+        case .multipleChoice: saveMultipleChoiceResponse()
+        case .rangeChoice: saveRangeResponse()
+        }
         currentQuestionIndex += 1
     }
+
+    func answerWithText(_ text: String) -> Answer? {
+        let answer = currentAnswers.first(where: { $0.text == text })
+        return answer
+    }
+    
+    func saveSingleChoiceResponse() {
+        if let button = singleChoiceItems.first(where: { $0.isSelected }),
+           let title = button.title(for: .normal),
+           let answer = answerWithText(title)
+        {
+            savedQuizResponses.append(answer)
+        }
+    }
+    
+    func saveMultipleChoiceResponse() {
+        for labelWithSwitch in multipleChioceItems {
+            if let uiSwitch = labelWithSwitch.arrangedSubviews.last as? UISwitch,
+               uiSwitch.isOn,
+               let uiLabel = labelWithSwitch.arrangedSubviews.first as? UILabel,
+               let text = uiLabel.text,
+               let answer = answerWithText(text)
+            {
+                savedQuizResponses.append(answer)
+            }
+        }
+    }
+    
+    func saveRangeResponse() {
+        let range = rangeSlider.maximumValue - rangeSlider.minimumValue
+        let stepLentgh = range / Float(currentAnswers.count)
+        let stepsInValue = Int( (rangeSlider.value / stepLentgh).rounded(.towardZero) )
+        let answerIndex = min(stepsInValue, currentAnswers.count - 1)
+        savedQuizResponses.append(currentAnswers[answerIndex])
+    }
+    
 }
