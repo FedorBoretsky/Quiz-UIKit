@@ -50,7 +50,6 @@ class QuestionsViewController: UIViewController
     }
     
     var savedQuizResponses: [Answer] = []
-    { didSet{ print(savedQuizResponses) }}
     
 
     // MARK: - Setup
@@ -114,21 +113,8 @@ class QuestionsViewController: UIViewController
         rangeFinishLabel.text = currentAnswers.last?.text
     }
     
-    // MARK: - Interactions
-    @IBAction func singleChoiceButtonPressed(_ sender: UIButton) {
-        singleChoiceItems.forEach{ $0.isSelected = false}
-        sender.isSelected = true
-    }
+    // MARK: - Save responses
     
-    @IBAction func finishQuestion() {
-        switch currentQuestion.responseType {
-        case .singleChoice: saveSingleChoiceResponse()
-        case .multipleChoice: saveMultipleChoiceResponse()
-        case .rangeChoice: saveRangeResponse()
-        }
-        currentQuestionIndex += 1
-    }
-
     func answerWithText(_ text: String) -> Answer? {
         let answer = currentAnswers.first(where: { $0.text == text })
         return answer
@@ -162,6 +148,27 @@ class QuestionsViewController: UIViewController
         let stepsInValue = Int( (rangeSlider.value / stepLentgh).rounded(.towardZero) )
         let answerIndex = min(stepsInValue, currentAnswers.count - 1)
         savedQuizResponses.append(currentAnswers[answerIndex])
+    }
+
+    
+    // MARK: - Interactions
+    
+    @IBAction func finishQuestion() {
+        switch currentQuestion.responseType {
+        case .singleChoice: saveSingleChoiceResponse()
+        case .multipleChoice: saveMultipleChoiceResponse()
+        case .rangeChoice: saveRangeResponse()
+        }
+        currentQuestionIndex += 1
+    }
+    
+    @IBSegueAction func gotoResultAction(_ coder: NSCoder) -> ResultViewController? {
+        return ResultViewController(coder: coder, responses: savedQuizResponses)
+    }
+    
+    @IBAction func singleChoiceButtonPressed(_ sender: UIButton) {
+        singleChoiceItems.forEach{ $0.isSelected = false}
+        sender.isSelected = true
     }
     
 }

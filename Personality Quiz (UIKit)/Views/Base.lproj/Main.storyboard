@@ -304,7 +304,7 @@
                         <outletCollection property="multipleChioceItems" destination="PYw-9K-rmm" collectionClass="NSMutableArray" id="6Fx-3t-suX"/>
                         <outletCollection property="multipleChioceItems" destination="v31-D7-tC9" collectionClass="NSMutableArray" id="sgT-ao-SOT"/>
                         <outletCollection property="multipleChioceItems" destination="GjS-3H-ftr" collectionClass="NSMutableArray" id="GxG-JT-b6j"/>
-                        <segue destination="IEt-zo-TRE" kind="show" identifier="gotoResult" id="RrK-yf-ba7"/>
+                        <segue destination="IEt-zo-TRE" kind="show" identifier="gotoResult" destinationCreationSelector="gotoResultAction:" id="RrK-yf-ba7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8TJ-AO-b8U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
