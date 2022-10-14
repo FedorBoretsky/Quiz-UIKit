@@ -7,5 +7,5 @@
 
 struct Answer {
     let text: String
-    let animalType: AnimalType
+    let badgeOrderInfo: BadgeOrderInfo
 }

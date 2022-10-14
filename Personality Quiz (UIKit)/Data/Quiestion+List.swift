@@ -7,12 +7,7 @@
 
 extension Question {
     static let list: [Question] = [
-        Question(text: "Какую еду вы предпочитаете?", responseType: .singleChoice, answers: [
-            Answer(text: "Стейк", animalType: .dog),
-            Answer(text: "Рыбу", animalType: .cat),
-            Answer(text: "Морковку", animalType: .rabbit),
-            Answer(text: "Кукурузу", animalType: .turtle),
-        ]),
+        Question(text: "Количество беджей", responseType: .naturalNumberChoice, answers: numberOfBadgesForSliders()),
         Question(text: "Что вы любите делать?", responseType: .multipleChoice, answers: [
             Answer(text: "Плавать", animalType: .turtle),
             Answer(text: "Спать", animalType: .cat),
@@ -26,4 +21,14 @@ extension Question {
             Answer(text: "Обожаю", animalType: .dog),
         ]),
     ]
+    
+    fileprivate static func numberOfBadgesForSliders() -> [Answer] {
+        var result: [Answer]
+        
+        result = []
+        
+        
+        
+        return result
+    }
 }
