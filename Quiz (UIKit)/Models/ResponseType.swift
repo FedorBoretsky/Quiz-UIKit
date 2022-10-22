@@ -9,5 +9,6 @@ enum ResponseType {
     case singleChoice
     case multipleChoice
     case rangeChoice
-    case naturalNumberChoice
+    case segmentedChoice
+    
 }
