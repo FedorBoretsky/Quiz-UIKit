@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Quize {
+struct Quize<Candidate> {
     
     struct Question {
         let text: String
@@ -19,5 +19,7 @@ struct Quize {
         let text: String
         let badgeOrderInfo: BadgeOrderInfo
     }
+    
+    let Start
     
 }

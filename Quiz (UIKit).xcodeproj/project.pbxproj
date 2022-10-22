@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3CE620FB28F9B03400EE51C4 /* BadgeOrderInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE620FA28F9B03400EE51C4 /* BadgeOrderInfo.swift */; };
 		3CE620FD28F9BEF700EE51C4 /* HoleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CE620FC28F9BEF700EE51C4 /* HoleType.swift */; };
+		9F0E9AD92904242F0018E621 /* Candidate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0E9AD82904242F0018E621 /* Candidate.swift */; };
 		9F5ED0FB27C24086002404E2 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5ED0FA27C24086002404E2 /* ResultViewController.swift */; };
 		9F5ED10527C26D9D002404E2 /* ResponseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5ED10427C26D9D002404E2 /* ResponseType.swift */; };
 		9F5ED10727C26DFE002404E2 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5ED10627C26DFE002404E2 /* Answer.swift */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		3CE620FA28F9B03400EE51C4 /* BadgeOrderInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeOrderInfo.swift; sourceTree = "<group>"; };
 		3CE620FC28F9BEF700EE51C4 /* HoleType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoleType.swift; sourceTree = "<group>"; };
+		9F0E9AD82904242F0018E621 /* Candidate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Candidate.swift; sourceTree = "<group>"; };
 		9F5ED0FA27C24086002404E2 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		9F5ED10427C26D9D002404E2 /* ResponseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseType.swift; sourceTree = "<group>"; };
 		9F5ED10627C26DFE002404E2 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				3CE620FC28F9BEF700EE51C4 /* HoleType.swift */,
 				9F5ED10827C26E72002404E2 /* Question.swift */,
 				9FCC638529042253001D179F /* Quiz.swift */,
+				9F0E9AD82904242F0018E621 /* Candidate.swift */,
 				9F5ED10427C26D9D002404E2 /* ResponseType.swift */,
 			);
 			path = Models;
@@ -214,6 +217,7 @@
 				9FCD4D4527BF7DEB00628B16 /* QuestionsViewController.swift in Sources */,
 				3CE620FB28F9B03400EE51C4 /* BadgeOrderInfo.swift in Sources */,
 				3CE620FD28F9BEF700EE51C4 /* HoleType.swift in Sources */,
+				9F0E9AD92904242F0018E621 /* Candidate.swift in Sources */,
 				9FCD4D3327BF7A2800628B16 /* SceneDelegate.swift in Sources */,
 				9F5ED10527C26D9D002404E2 /* ResponseType.swift in Sources */,
 				9F5ED10727C26DFE002404E2 /* Answer.swift in Sources */,
