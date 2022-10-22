@@ -29,6 +29,14 @@ struct Quize {
                     Answer(text: "Много-", votes: [.bishop]),
                     Answer(text: "Много", votes: [.queen]),
                  ]),
+        Question(text: "Из-за вашей фигуры вы не можете ходить:",
+                 responseType: .multipleChoice,
+                 answers: [
+                    Answer(text: "Прямо", votes: [.bishop]),
+                    Answer(text: "Назад", votes: [.pawn]),
+                    Answer(text: "Вбок", votes: [.bishop]),
+                    Answer(text: "Далеко", votes: [.king, .pawn]),
+                 ]),
     ]
     
     enum Candidate: String {
