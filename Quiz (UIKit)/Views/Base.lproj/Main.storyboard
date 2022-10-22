@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,7 +12,7 @@
         <!--Welcome View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="WelcomeViewController" customModule="Personality_Quiz__UIKit_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="WelcomeViewController" customModule="Quiz__UIKit_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -40,7 +41,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🐶" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PlA-Ud-BZV">
-                                <rect key="frame" x="20" y="64" width="45" height="48"/>
+                                <rect key="frame" x="20" y="68" width="45" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -52,7 +53,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🐈" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MQU-du-nCT">
-                                <rect key="frame" x="349" y="64" width="45" height="48"/>
+                                <rect key="frame" x="349" y="68" width="45" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -89,9 +90,9 @@
         <!--Question View-->
         <scene sceneID="EBc-Ax-VaG">
             <objects>
-                <viewController id="c9h-ST-fHR" customClass="QuestionsViewController" customModule="Personality_Quiz__UIKit_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="c9h-ST-fHR" customClass="QuestionsViewController" customModule="Quiz__UIKit_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xLS-yH-fDl">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rHV-0L-G4v">
@@ -248,8 +249,43 @@
                                     <constraint firstAttribute="trailing" secondItem="gp5-L2-IuP" secondAttribute="trailing" id="oFq-8s-GuL"/>
                                 </constraints>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="ncw-ts-u9A">
+                                <rect key="frame" x="20" y="217" width="374" height="74.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="Mxv-cF-tjA">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="21.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tXW-YW-oat">
+                                                <rect key="frame" x="0.0" y="0.0" width="176" height="21.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sF9-Rz-vW7">
+                                                <rect key="frame" x="198" y="0.0" width="176" height="21.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Msu-Ba-0Zz">
+                                        <rect key="frame" x="0.0" y="43.5" width="374" height="32"/>
+                                        <segments>
+                                            <segment title="First"/>
+                                            <segment title="Second"/>
+                                        </segments>
+                                    </segmentedControl>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Mxv-cF-tjA" firstAttribute="leading" secondItem="ncw-ts-u9A" secondAttribute="leading" id="2Ob-KV-G9J"/>
+                                    <constraint firstItem="Msu-Ba-0Zz" firstAttribute="leading" secondItem="ncw-ts-u9A" secondAttribute="leading" id="75i-fl-Ln1"/>
+                                    <constraint firstAttribute="trailing" secondItem="Msu-Ba-0Zz" secondAttribute="trailing" id="ftY-dL-rnn"/>
+                                    <constraint firstAttribute="trailing" secondItem="Mxv-cF-tjA" secondAttribute="trailing" id="leN-Us-5ta"/>
+                                </constraints>
+                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S1N-zS-6tK">
-                                <rect key="frame" x="156.5" y="786.5" width="101.5" height="35.5"/>
+                                <rect key="frame" x="156.5" y="782.5" width="101.5" height="35.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Далее"/>
@@ -266,6 +302,7 @@
                         <constraints>
                             <constraint firstItem="rHV-0L-G4v" firstAttribute="top" secondItem="lk3-zK-HU2" secondAttribute="top" id="0TO-hX-hSM"/>
                             <constraint firstItem="Bze-Zl-egU" firstAttribute="leading" secondItem="lk3-zK-HU2" secondAttribute="leading" constant="20" id="1de-HE-OOT"/>
+                            <constraint firstItem="lk3-zK-HU2" firstAttribute="trailing" secondItem="ncw-ts-u9A" secondAttribute="trailing" constant="20" id="2YA-IL-bRd"/>
                             <constraint firstItem="lk3-zK-HU2" firstAttribute="bottom" secondItem="S1N-zS-6tK" secondAttribute="bottom" constant="20" id="3I2-ks-Khb"/>
                             <constraint firstItem="y6N-me-OZ4" firstAttribute="leading" secondItem="lk3-zK-HU2" secondAttribute="leading" constant="20" id="3gd-FX-Q9e"/>
                             <constraint firstItem="lk3-zK-HU2" firstAttribute="trailing" secondItem="rHV-0L-G4v" secondAttribute="trailing" id="BmG-WU-S6Q"/>
@@ -273,8 +310,10 @@
                             <constraint firstItem="lk3-zK-HU2" firstAttribute="trailing" secondItem="Bze-Zl-egU" secondAttribute="trailing" constant="20" id="TQx-B0-woM"/>
                             <constraint firstItem="lk3-zK-HU2" firstAttribute="trailing" secondItem="4hi-xZ-dPt" secondAttribute="trailing" constant="20" id="Yh0-9n-nfJ"/>
                             <constraint firstItem="ixA-z0-9HS" firstAttribute="top" secondItem="y6N-me-OZ4" secondAttribute="bottom" constant="22" id="cuy-va-YYY"/>
+                            <constraint firstItem="ncw-ts-u9A" firstAttribute="top" secondItem="y6N-me-OZ4" secondAttribute="bottom" constant="22" id="dLw-cr-9RK"/>
                             <constraint firstItem="4hi-xZ-dPt" firstAttribute="top" secondItem="y6N-me-OZ4" secondAttribute="bottom" constant="22" id="eVx-P5-Egg"/>
                             <constraint firstItem="S1N-zS-6tK" firstAttribute="centerX" secondItem="xLS-yH-fDl" secondAttribute="centerX" id="ecR-x6-426"/>
+                            <constraint firstItem="ncw-ts-u9A" firstAttribute="leading" secondItem="lk3-zK-HU2" secondAttribute="leading" constant="20" id="eif-aq-si4"/>
                             <constraint firstItem="ixA-z0-9HS" firstAttribute="leading" secondItem="lk3-zK-HU2" secondAttribute="leading" constant="20" id="fqZ-mM-BjU"/>
                             <constraint firstItem="lk3-zK-HU2" firstAttribute="trailing" secondItem="y6N-me-OZ4" secondAttribute="trailing" constant="20" id="kpS-gE-ZBn"/>
                             <constraint firstItem="rHV-0L-G4v" firstAttribute="leading" secondItem="lk3-zK-HU2" secondAttribute="leading" id="mbR-V7-qc8"/>
@@ -292,6 +331,10 @@
                         <outlet property="rangeFinishLabel" destination="XEB-eZ-K0Z" id="YIA-l3-m82"/>
                         <outlet property="rangeSlider" destination="gp5-L2-IuP" id="ZZG-tO-0DM"/>
                         <outlet property="rangeStartLabel" destination="3OU-8o-abG" id="gUq-Fl-nt8"/>
+                        <outlet property="segmentedChoiceForm" destination="ncw-ts-u9A" id="Lxc-BJ-oSN"/>
+                        <outlet property="segmentedControl" destination="Msu-Ba-0Zz" id="7rP-Gy-QbR"/>
+                        <outlet property="segmentedFinishLabel" destination="sF9-Rz-vW7" id="Qz9-aK-TbY"/>
+                        <outlet property="segmentedStartLabel" destination="tXW-YW-oat" id="vjf-u1-ajb"/>
                         <outlet property="singleChoiceForm" destination="4hi-xZ-dPt" id="ZSk-0Q-cwV"/>
                         <outletCollection property="choiceControls" destination="4hi-xZ-dPt" collectionClass="NSMutableArray" id="Ftt-gG-LqI"/>
                         <outletCollection property="choiceControls" destination="Bze-Zl-egU" collectionClass="NSMutableArray" id="qoL-Hh-jve"/>
@@ -304,6 +347,7 @@
                         <outletCollection property="multipleChioceItems" destination="PYw-9K-rmm" collectionClass="NSMutableArray" id="6Fx-3t-suX"/>
                         <outletCollection property="multipleChioceItems" destination="v31-D7-tC9" collectionClass="NSMutableArray" id="sgT-ao-SOT"/>
                         <outletCollection property="multipleChioceItems" destination="GjS-3H-ftr" collectionClass="NSMutableArray" id="GxG-JT-b6j"/>
+                        <outletCollection property="choiceControls" destination="ncw-ts-u9A" collectionClass="NSMutableArray" id="bDl-nZ-kmb"/>
                         <segue destination="IEt-zo-TRE" kind="show" identifier="gotoResult" destinationCreationSelector="gotoResultAction:" id="RrK-yf-ba7"/>
                     </connections>
                 </viewController>
@@ -314,13 +358,13 @@
         <!--Result View Controller-->
         <scene sceneID="GDo-oY-VCy">
             <objects>
-                <viewController id="IEt-zo-TRE" customClass="ResultViewController" customModule="Personality_Quiz__UIKit_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="IEt-zo-TRE" customClass="ResultViewController" customModule="Quiz__UIKit_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OPD-3R-7LZ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="Zzf-mo-5FO">
-                                <rect key="frame" x="20" y="368" width="374" height="106"/>
+                                <rect key="frame" x="20" y="366" width="374" height="106"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="firstBaseline" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="2e2-PJ-Iyu">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="62.5"/>

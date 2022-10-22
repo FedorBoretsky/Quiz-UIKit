@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct Answer<Candidate> {
+struct Answer {
     let text: String
-    let votes: [Candidate]
+    let votes: [Piece]
     var isSelected = false
 }

@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct Question<Candidate> {
+struct Question {
     let text: String
     let responseType: ResponseType
-    let answers: [Answer<Candidate>]
+    var answers: [Answer]
 }
 

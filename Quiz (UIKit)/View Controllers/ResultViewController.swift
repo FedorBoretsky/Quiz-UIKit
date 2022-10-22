@@ -12,10 +12,10 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    let answers: [Answer]
+    let quiz: Quiz
     
-    init?(coder: NSCoder, responses answers: [Answer]) {
-        self.answers = answers
+    init?(coder: NSCoder, quiz: Quiz) {
+        self.quiz = quiz
         super.init(coder: coder)
     }
     
@@ -26,20 +26,12 @@ class ResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
-        displayResult(animal: calculatedResult())
+        displayResult()
     }
     
-    func displayResult(animal: AnimalType) {
-        resultLabel.text = "\(animal.rawValue)"
-        descriptionLabel.text = animal.description
+    func displayResult() {
+        resultLabel.text = quiz.finishTitle
+        descriptionLabel.text = quiz.finishDescription
     }
     
-    func calculatedResult() -> AnimalType {
-        let numberOfResponsesByType = answers.reduce(into: [:]) { numberOfResponsesByType, answer in
-            numberOfResponsesByType[answer.animalType, default: 0] += 1
-        }
-        let mostFrequentType = numberOfResponsesByType.sorted{ $0.value > $1.value }.first!.key
-        return mostFrequentType
-    }
-
 }

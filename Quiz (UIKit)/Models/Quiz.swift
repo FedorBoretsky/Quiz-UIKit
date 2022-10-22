@@ -7,18 +7,14 @@
 
 import Foundation
 
-struct Quize {
-    
-    // MARK: - UI used instance.
-    
-    static var shared = Quize()
+struct Quiz {
     
     // MARK: - Content of the Quiz.
     
-    typealias Candidate = Piece
     let startTitle = "Какая у меня фигура, тренер?"
     
-    let questions: [Question<Candidate>] = [
+    typealias Candidate = Piece
+    var questions: [Question] = [
         Question(text: "Много ли вы едите?",
                  responseType: .singleChoice,
                  answers: [
@@ -78,9 +74,25 @@ struct Quize {
     
     // MARK: - Intents.
     
-//    func clearAllAnswersInQuestion(questionIndex: Int) {
-//        questions[questionIndex].answers.
-//    }
+    mutating func selectAnswer(questionIndex: Int, answerIndex: Int) {
+        
+        // Clear previous choice if only one answer is possible.
+        switch questions[questionIndex].responseType {
+        case .segmentedChoice, .rangeChoice, .singleChoice:
+            deselectAnswersInQuestion(questionIndex: questionIndex)
+        case .multipleChoice:
+            break
+        }
+        
+        // New selection.
+        questions[questionIndex].answers[answerIndex].isSelected = true
+    }
+    
+    mutating func deselectAnswersInQuestion(questionIndex: Int) {
+        questions[questionIndex].answers.enumerated().forEach { (index, _) in
+            questions[questionIndex].answers[index].isSelected = false
+        }
+    }
     
 
     

@@ -3,12 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		9F5ED0FB27C24086002404E2 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5ED0FA27C24086002404E2 /* ResultViewController.swift */; };
 		9F5ED10527C26D9D002404E2 /* ResponseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5ED10427C26D9D002404E2 /* ResponseType.swift */; };
+		9FAB239C2904AACE00C37717 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9FCD4D3E27BF7A2900628B16 /* Info.plist */; };
 		9FCC638629042253001D179F /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCC638529042253001D179F /* Quiz.swift */; };
 		9FCD4D3127BF7A2800628B16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCD4D3027BF7A2800628B16 /* AppDelegate.swift */; };
 		9FCD4D3327BF7A2800628B16 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCD4D3227BF7A2800628B16 /* SceneDelegate.swift */; };
@@ -17,8 +18,6 @@
 		9FCD4D3A27BF7A2900628B16 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FCD4D3927BF7A2900628B16 /* Assets.xcassets */; };
 		9FCD4D3D27BF7A2900628B16 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FCD4D3B27BF7A2900628B16 /* LaunchScreen.storyboard */; };
 		9FCD4D4527BF7DEB00628B16 /* QuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCD4D4427BF7DEB00628B16 /* QuestionsViewController.swift */; };
-		9FCFA59927C28FB40052F556 /* Quiestion+List----Delete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCFA59827C28FB40052F556 /* Quiestion+List----Delete.swift */; };
-		9FDFE19B290428A800940675 /* Quiz about Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDFE19A290428A800940675 /* Quiz about Piece.swift */; };
 		9FFA42F629043B05001F8672 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFA42F529043B05001F8672 /* Question.swift */; };
 		9FFA42F829043B5A001F8672 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFA42F729043B5A001F8672 /* Answer.swift */; };
 		9FFA42FA29043C97001F8672 /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFA42F929043C97001F8672 /* Piece.swift */; };
@@ -170,7 +169,7 @@
 				};
 			};
 			buildConfigurationList = 9FCD4D2827BF7A2800628B16 /* Build configuration list for PBXProject "Quiz (UIKit)" */;
-			compatibilityVersion = "Xcode 13.0";
+			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -192,6 +191,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FAB239C2904AACE00C37717 /* Info.plist in Resources */,
 				9FCD4D3D27BF7A2900628B16 /* LaunchScreen.storyboard in Resources */,
 				9FCD4D3A27BF7A2900628B16 /* Assets.xcassets in Resources */,
 				9FCD4D3827BF7A2800628B16 /* Main.storyboard in Resources */,
@@ -206,9 +206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F5ED0FB27C24086002404E2 /* ResultViewController.swift in Sources */,
-				9FCFA59927C28FB40052F556 /* Quiestion+List----Delete.swift in Sources */,
 				9FCC638629042253001D179F /* Quiz.swift in Sources */,
-				9FDFE19B290428A800940675 /* Quiz about Piece.swift in Sources */,
 				9FCD4D3527BF7A2800628B16 /* WelcomeViewController.swift in Sources */,
 				9FFA42F829043B5A001F8672 /* Answer.swift in Sources */,
 				9FFA42F629043B05001F8672 /* Question.swift in Sources */,
@@ -378,7 +376,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Fedor.Boretsky.Personality-Quiz--UIKit-";
+				PRODUCT_BUNDLE_IDENTIFIER = "Fedor.Boretsky.Quiz--UIKit-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -406,7 +404,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Fedor.Boretsky.Personality-Quiz--UIKit-";
+				PRODUCT_BUNDLE_IDENTIFIER = "Fedor.Boretsky.Quiz--UIKit-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

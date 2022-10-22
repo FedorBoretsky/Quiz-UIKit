@@ -28,12 +28,19 @@ class QuestionsViewController: UIViewController
     @IBOutlet weak var rangeFinishLabel: UILabel!
     @IBOutlet weak var rangeSlider: UISlider!
     
+    @IBOutlet weak var segmentedChoiceForm: UIStackView!
+    @IBOutlet weak var segmentedStartLabel: UILabel!
+    @IBOutlet weak var segmentedFinishLabel: UILabel!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
     
     // MARK: - State
     
+    var quiz: Quiz!
+    
     var currentQuestionIndex = 0 {
         didSet {
-            if currentQuestionIndex < Question.list.count {
+            if currentQuestionIndex < quiz.questions.count {
                 updateUI()
             } else {
                 performSegue(withIdentifier: "gotoResult", sender: nil)
@@ -42,20 +49,18 @@ class QuestionsViewController: UIViewController
     }
     
     var currentQuestion: Question {
-        Question.list[currentQuestionIndex]
+        quiz.questions[currentQuestionIndex]
     }
     
     var currentAnswers: [Answer] {
         currentQuestion.answers
     }
     
-    var savedQuizResponses: [Answer] = []
-    
-
     // MARK: - Setup
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        quiz = Quiz()
         updateUI()
     }
     
@@ -64,12 +69,12 @@ class QuestionsViewController: UIViewController
     func updateUI() {
         
         // Quiz progress bar
-        let progressStep: Float = 1.0 / Float(Question.list.count)
+        let progressStep: Float = 1.0 / Float(quiz.questions.count)
         let currentProgress = Float(currentQuestionIndex) * progressStep + progressStep / 4
         quizProgressBar.setProgress(currentProgress, animated: true)
         
         // Number and the text of question.
-        self.title = "Вопрос \(currentQuestionIndex + 1) из \(Question.list.count)"
+        self.title = "Вопрос \(currentQuestionIndex + 1) из \(quiz.questions.count)"
         questionWording.text = currentQuestion.text
         
         // Response controls.
@@ -81,6 +86,8 @@ class QuestionsViewController: UIViewController
             showMultipleChoice()
         case .rangeChoice:
             showRangeChoice()
+        case .segmentedChoice:
+            showSegmentedChoice()
         }
     }
     
@@ -113,33 +120,37 @@ class QuestionsViewController: UIViewController
         rangeFinishLabel.text = currentAnswers.last?.text
     }
     
-    // MARK: - Save responses
-    
-    func answerWithText(_ text: String) -> Answer? {
-        let answer = currentAnswers.first(where: { $0.text == text })
-        return answer
+    func showSegmentedChoice() {
+        segmentedChoiceForm.isHidden = false
+        segmentedStartLabel.text = currentAnswers.first?.text
+        segmentedFinishLabel.text = currentAnswers.last?.text
+        // TODO: Implement showSegmentedChoice().
+
     }
     
+    // MARK: - Save responses
+      
     func saveSingleChoiceResponse() {
-        if let button = singleChoiceItems.first(where: { $0.isSelected }),
-           let title = button.title(for: .normal),
-           let answer = answerWithText(title)
-        {
-            savedQuizResponses.append(answer)
+        let answerIndex = singleChoiceItems.firstIndex{ $0.isSelected }
+        if let answerIndex = answerIndex {
+            quiz.selectAnswer(questionIndex: currentQuestionIndex, answerIndex: answerIndex)
         }
     }
     
     func saveMultipleChoiceResponse() {
-        for labelWithSwitch in multipleChioceItems {
+        
+        // Clear previous answers.
+        quiz.deselectAnswersInQuestion(questionIndex: currentQuestionIndex)
+        
+        // Select new answers.
+        for (answerIndex, labelWithSwitch) in multipleChioceItems.enumerated() {
             if let uiSwitch = labelWithSwitch.arrangedSubviews.last as? UISwitch,
-               uiSwitch.isOn,
-               let uiLabel = labelWithSwitch.arrangedSubviews.first as? UILabel,
-               let text = uiLabel.text,
-               let answer = answerWithText(text)
+               uiSwitch.isOn
             {
-                savedQuizResponses.append(answer)
+                quiz.selectAnswer(questionIndex: currentQuestionIndex, answerIndex: answerIndex)
             }
         }
+        
     }
     
     func saveRangeResponse() {
@@ -147,23 +158,27 @@ class QuestionsViewController: UIViewController
         let stepLentgh = range / Float(currentAnswers.count)
         let stepsInValue = Int( (rangeSlider.value / stepLentgh).rounded(.towardZero) )
         let answerIndex = min(stepsInValue, currentAnswers.count - 1)
-        savedQuizResponses.append(currentAnswers[answerIndex])
+        quiz.selectAnswer(questionIndex: currentQuestionIndex, answerIndex: answerIndex)
     }
 
+    func saveSegmentedResponse() {
+        
+    }
     
     // MARK: - Interactions
     
     @IBAction func finishQuestion() {
         switch currentQuestion.responseType {
-        case .singleChoice: saveSingleChoiceResponse()
-        case .multipleChoice: saveMultipleChoiceResponse()
-        case .rangeChoice: saveRangeResponse()
+        case .singleChoice:     saveSingleChoiceResponse()
+        case .multipleChoice:   saveMultipleChoiceResponse()
+        case .rangeChoice:      saveRangeResponse()
+        case .segmentedChoice:  saveSegmentedResponse()
         }
         currentQuestionIndex += 1
     }
     
     @IBSegueAction func gotoResultAction(_ coder: NSCoder) -> ResultViewController? {
-        return ResultViewController(coder: coder, responses: savedQuizResponses)
+        return ResultViewController(coder: coder, quiz: quiz)
     }
     
     @IBAction func singleChoiceButtonPressed(_ sender: UIButton) {
