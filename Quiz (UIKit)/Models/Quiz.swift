@@ -7,19 +7,29 @@
 
 import Foundation
 
-struct Quize<Candidate> {
+struct Quize {
     
+    let startTitle: String
+    
+    
+    enum Candidate: String {
+        case pawn = "Пешка"
+        case king = "Король"
+        case bishop = "Слон"
+        case queen = "Ферзь"
+    }
+
     struct Question {
         let text: String
         let responseType: ResponseType
-        let answers: [Answer]
+        let answers: [PossibleAnswer]
     }
 
-    struct Answer {
+    struct PossibleAnswer {
         let text: String
-        let badgeOrderInfo: BadgeOrderInfo
+        var isSelected: Bool
+        let votes: [Candidate]
     }
     
-    let Start
     
 }
