@@ -30,7 +30,7 @@
 		9F5ED10427C26D9D002404E2 /* ResponseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseType.swift; sourceTree = "<group>"; };
 		9F5ED10627C26DFE002404E2 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		9F5ED10827C26E72002404E2 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
-		9FCD4D2D27BF7A2800628B16 /* Personality Quiz (UIKit).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Personality Quiz (UIKit).app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FCD4D2D27BF7A2800628B16 /* Quiz (UIKit).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Quiz (UIKit).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FCD4D3027BF7A2800628B16 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9FCD4D3227BF7A2800628B16 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		9FCD4D3427BF7A2800628B16 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -96,7 +96,7 @@
 		9FCD4D2E27BF7A2800628B16 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9FCD4D2D27BF7A2800628B16 /* Personality Quiz (UIKit).app */,
+				9FCD4D2D27BF7A2800628B16 /* Quiz (UIKit).app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -134,9 +134,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9FCD4D2C27BF7A2800628B16 /* Personality Quiz (UIKit) */ = {
+		9FCD4D2C27BF7A2800628B16 /* Quiz (UIKit) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9FCD4D4127BF7A2900628B16 /* Build configuration list for PBXNativeTarget "Personality Quiz (UIKit)" */;
+			buildConfigurationList = 9FCD4D4127BF7A2900628B16 /* Build configuration list for PBXNativeTarget "Quiz (UIKit)" */;
 			buildPhases = (
 				9FCD4D2927BF7A2800628B16 /* Sources */,
 				9FCD4D2A27BF7A2800628B16 /* Frameworks */,
@@ -146,9 +146,9 @@
 			);
 			dependencies = (
 			);
-			name = "Personality Quiz (UIKit)";
+			name = "Quiz (UIKit)";
 			productName = "Personality Quiz (UIKit)";
-			productReference = 9FCD4D2D27BF7A2800628B16 /* Personality Quiz (UIKit).app */;
+			productReference = 9FCD4D2D27BF7A2800628B16 /* Quiz (UIKit).app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -166,7 +166,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 9FCD4D2827BF7A2800628B16 /* Build configuration list for PBXProject "Personality Quiz (UIKit)" */;
+			buildConfigurationList = 9FCD4D2827BF7A2800628B16 /* Build configuration list for PBXProject "Quiz (UIKit)" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -179,7 +179,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9FCD4D2C27BF7A2800628B16 /* Personality Quiz (UIKit) */,
+				9FCD4D2C27BF7A2800628B16 /* Quiz (UIKit) */,
 			);
 		};
 /* End PBXProject section */
@@ -413,7 +413,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9FCD4D2827BF7A2800628B16 /* Build configuration list for PBXProject "Personality Quiz (UIKit)" */ = {
+		9FCD4D2827BF7A2800628B16 /* Build configuration list for PBXProject "Quiz (UIKit)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9FCD4D3F27BF7A2900628B16 /* Debug */,
@@ -422,7 +422,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9FCD4D4127BF7A2900628B16 /* Build configuration list for PBXNativeTarget "Personality Quiz (UIKit)" */ = {
+		9FCD4D4127BF7A2900628B16 /* Build configuration list for PBXNativeTarget "Quiz (UIKit)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9FCD4D4227BF7A2900628B16 /* Debug */,
