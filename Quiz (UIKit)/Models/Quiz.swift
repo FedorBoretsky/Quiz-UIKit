@@ -13,16 +13,22 @@ struct Quize {
     
     let startTitle = "Какая у меня фигура, тренер?"
     let questions: [Question] = [
-        Question(
-            text: "Много ли вы едите?",
-            responseType: .singleChoice,
-            answers: [
-                Answer(text: "Только чтобы выжить", votes: [.king]),
-                Answer(text: "Мало", votes: [.pawn]),
-                Answer(text: "Нормально", votes: [.bishop, .queen]),
-                Answer(text: "Постоянно", votes: [.queen]),
-            ]
-        ),
+        Question(text: "Много ли вы едите?",
+                 responseType: .singleChoice,
+                 answers: [
+                    Answer(text: "Только чтобы выжить", votes: [.king]),
+                    Answer(text: "Мало", votes: [.pawn]),
+                    Answer(text: "Нормально", votes: [.bishop, .queen]),
+                    Answer(text: "Постоянно", votes: [.queen]),
+                 ]),
+        Question(text: "Много ли вы двигаетесь?",
+                 responseType: .segmentedChoice,
+                 answers: [
+                    Answer(text: "Мало", votes: [.king]),
+                    Answer(text: "Мало+", votes: [.pawn]),
+                    Answer(text: "Много-", votes: [.bishop]),
+                    Answer(text: "Много", votes: [.queen]),
+                 ]),
     ]
     
     enum Candidate: String {
@@ -41,13 +47,13 @@ struct Quize {
             }
         }
     }
-
+    
     struct Question {
         let text: String
         let responseType: ResponseType
         let answers: [Answer]
     }
-
+    
     struct Answer {
         let text: String
         let votes: [Candidate]
