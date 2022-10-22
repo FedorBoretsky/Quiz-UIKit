@@ -9,26 +9,49 @@ import Foundation
 
 struct Quize {
     
-    let startTitle: String
+    static var shared = Quize()
     
+    let startTitle = "Какая у меня фигура, тренер?"
+    let questions: [Question] = [
+        Question(
+            text: "Много ли вы едите?",
+            responseType: .singleChoice,
+            answers: [
+                Answer(text: "Только чтобы выжить", votes: [.king]),
+                Answer(text: "Мало", votes: [.pawn]),
+                Answer(text: "Нормально", votes: [.bishop, .queen]),
+                Answer(text: "Постоянно", votes: [.queen]),
+            ]
+        ),
+    ]
     
     enum Candidate: String {
         case pawn = "Пешка"
         case king = "Король"
         case bishop = "Слон"
         case queen = "Ферзь"
+        
+        var name: String { self.rawValue }
+        var description: String {
+            switch self {
+            case .pawn: return ""
+            case .king: return ""
+            case .bishop: return ""
+            case .queen: return ""
+            }
+        }
     }
 
     struct Question {
         let text: String
         let responseType: ResponseType
-        let answers: [PossibleAnswer]
+        let answers: [Answer]
     }
 
-    struct PossibleAnswer {
+    struct Answer {
         let text: String
-        var isSelected: Bool
         let votes: [Candidate]
+        var isSelected = false
     }
     
     
