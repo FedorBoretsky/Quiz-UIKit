@@ -9,10 +9,16 @@ import Foundation
 
 struct Quize {
     
+    // MARK: - UI used instance.
+    
     static var shared = Quize()
     
+    // MARK: - Content of the Quiz.
+    
+    typealias Candidate = Piece
     let startTitle = "Какая у меня фигура, тренер?"
-    let questions: [Question] = [
+    
+    let questions: [Question<Candidate>] = [
         Question(text: "Много ли вы едите?",
                  responseType: .singleChoice,
                  answers: [
@@ -37,36 +43,45 @@ struct Quize {
                     Answer(text: "Вбок", votes: [.bishop]),
                     Answer(text: "Далеко", votes: [.king, .pawn]),
                  ]),
+        Question(text: "Из-за вашей фигуры другие люди:",
+                 responseType: .multipleChoice,
+                 answers: [
+                    Answer(text: "Завидуют вам", votes: [.queen]),
+                    Answer(text: "Избегают вас", votes: [.queen, .bishop]),
+                    Answer(text: "Смеются над вами", votes: [.pawn]),
+                    Answer(text: "Нападают на вас", votes: [.king, .queen]),
+                 ]),
     ]
     
-    enum Candidate: String {
-        case pawn = "Пешка"
-        case king = "Король"
-        case bishop = "Слон"
-        case queen = "Ферзь"
+
+    var finishTitle: String {
+        guard let result = calculatedResult
+        else { return "У вас что-то непонятное" }
         
-        var name: String { self.rawValue }
-        var description: String {
-            switch self {
-            case .pawn: return ""
-            case .king: return ""
-            case .bishop: return ""
-            case .queen: return ""
-            }
-        }
+        return "У вас \(result.name)"
     }
     
-    struct Question {
-        let text: String
-        let responseType: ResponseType
-        let answers: [Answer]
+    var finishDescription: String {
+        guard let result = calculatedResult
+        else { return "Ответьте хотя бы на один вопрос." }
+        
+        return result.description
     }
     
-    struct Answer {
-        let text: String
-        let votes: [Candidate]
-        var isSelected = false
+    
+
+    // MARK: - Service
+    
+    private var calculatedResult: Candidate? {
+        return nil
     }
     
+    // MARK: - Intents.
+    
+//    func clearAllAnswersInQuestion(questionIndex: Int) {
+//        questions[questionIndex].answers.
+//    }
+    
+
     
 }
